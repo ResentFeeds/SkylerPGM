@@ -2,6 +2,7 @@ package me.skylertyler.skylerpgm.module.modules;
 
 import java.util.List;
 
+import me.skylertyler.skylerpgm.log.Log;
 import me.skylertyler.skylerpgm.map.MapAuthor;
 import me.skylertyler.skylerpgm.map.MapContributor;
 import me.skylertyler.skylerpgm.map.MapRule;
@@ -10,7 +11,7 @@ import me.skylertyler.skylerpgm.module.ModuleInfo;
 import me.skylertyler.skylerpgm.module.builders.InfoModuleBuilder;
 
 @ModuleInfo(name = "info", desc = "description for the map", listener = true,  builder = InfoModuleBuilder.class)
-public class InfoModule implements Module{
+public class InfoModule extends Module{
 
 	
 	private String name;
@@ -18,6 +19,7 @@ public class InfoModule implements Module{
 	private List<MapAuthor> authors;
 	private List<MapContributor> contributors;
 	private List<MapRule> rules;
+	
 
 	public InfoModule(String name, String description, List<MapAuthor> authors, List<MapContributor> contributors, List<MapRule> rules) {
 		 this.name = name;
@@ -25,6 +27,10 @@ public class InfoModule implements Module{
 		 this.authors = authors;
 		 this.contributors = contributors;
 		 this.rules = rules;
+		 
+		 //TESTING here IGNORE 
+		 Log.info("name = " + Module.getInfo(InfoModule.class).getInfo().name()); 
+		 Log.info("description = " + Module.getInfo(InfoModule.class).getInfo().desc());
 	}
 	
 	public List<MapRule> getRules(){
@@ -61,14 +67,14 @@ public class InfoModule implements Module{
 	
 	
 	
-	@Override
 	public void unload() {
+		//todo 
 	}
 
-	@Override
 	public void load() {
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 }

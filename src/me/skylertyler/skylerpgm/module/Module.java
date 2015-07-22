@@ -1,8 +1,12 @@
 package me.skylertyler.skylerpgm.module;
 
-public interface Module {
+public abstract class Module {
 
-	void unload();
+	public abstract void unload();
 
-	void load();
+	public abstract void load();
+
+	public static ModuleAbout getInfo(Class<? extends Module> clazz) {
+		return new ModuleAbout(clazz);
+	}
 }
